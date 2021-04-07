@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this,
                 android.R.layout.simple_list_item_1,
                 android.R.id.text1,
-                DataModel.getInstance().itemArray
+                DataModel.getInstance().getContactNames() // appel fonction getContactName pour lire la valeurs des noms
         );
         listView.setAdapter(adapter);
     }

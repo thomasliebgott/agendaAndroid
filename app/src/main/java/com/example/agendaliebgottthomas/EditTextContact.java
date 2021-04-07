@@ -27,7 +27,7 @@ public class EditTextContact extends AppCompatActivity {
         super.onResume();
         int itemSelected = DataModel.getInstance().itemSelected;
         if(itemSelected >=0){
-            String name = DataModel.getInstance().itemArray.get(itemSelected);
+            String name = DataModel.getInstance().getName(itemSelected);
             editName.setText(name);
         }else{
             editName.setText("");
@@ -40,15 +40,11 @@ public class EditTextContact extends AppCompatActivity {
         if(item.length() > 0){
             int itemSelected = DataModel.getInstance().itemSelected;
             if(itemSelected < 0){
-                DataModel.getInstance().itemArray.add(item);
+                DataModel.getInstance().addContact(item); // PB doit ajouter l'objet du contact
             }else{
-                DataModel.getInstance().itemArray.set(itemSelected,item);
+                DataModel.getInstance().setContact(itemSelected,item); //
             }
         }
         finish();
     }
-
-
-
-
 }
