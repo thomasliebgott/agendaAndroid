@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">agendaLiebgottThomas</string>
+    <string name="mainActivityTitle">Agenda</string>
+    <string name="editText">Edit</string>
+
+    <string name="adress">Adress</string>
+    <string name="enter">Enter</string>
+    <string name="button">Button</string>
+    <string name="number">number</string>
+    <string name="name">name</string>
+    <string name="add">add</string>
+
+
+</resources>
