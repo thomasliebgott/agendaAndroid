@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     ListView listView;
-
+    private Contacts contacts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,12 +28,11 @@ public class MainActivity extends AppCompatActivity {
                 goToItemEditTextContact(position);
             }
         });
-
          //supprimer en appuyant longtemps
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                DataModel.getInstance().contacts.remove(position);
+                DataModel.getInstance().listContact.remove(position);
                 updateContents();
                 Toast.makeText(MainActivity.this,"delete",Toast.LENGTH_SHORT).show();
                 return false;
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this,
                 android.R.layout.simple_list_item_1,
                 android.R.id.text1,
-                DataModel.getInstance().contacts
+                DataModel.getInstance().itemArray
         );
         listView.setAdapter(adapter);
     }
