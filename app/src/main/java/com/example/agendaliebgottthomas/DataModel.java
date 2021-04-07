@@ -8,8 +8,6 @@ public class DataModel {
     int i=0;
     private static DataModel instance = new DataModel();
 
-//    ArrayList<Contacts> listContact = new ArrayList<>();
-
     public ArrayList<Contacts> listContact = new ArrayList<>();
     ArrayList<String> itemArray = new ArrayList<>();
 
@@ -25,17 +23,13 @@ public class DataModel {
         listContact.get(itemSelected).setName(name);
     }
 
-//    public void getPhone(int itemSelected){
-//        listContact.get(itemSelected).getPhone();
-//    }
-//
-//    public void getAdress(int itemSelected){
-//        listContact.get(itemSelected).getAdress();
-//    }
-//
-//    public void removeContact(int itemSelected){
-//        listContact.remove(itemSelected);
-//    }
+    public String getPhone(int itemSelected){
+        return listContact.get(itemSelected).getPhone();
+    }
+
+    public String getAdress(int itemSelected){
+        return listContact.get(itemSelected).getAdress();
+    }
 
     private DataModel(){
     }
@@ -45,11 +39,6 @@ public class DataModel {
     }
 
     public int itemSelected = -1;
-//
-//    public ArrayList<String> getName(){
-//        ArrayList<String> arrayList = new ArrayList<>();
-//        return arrayList;
-//    }
 
 // fonction qui lit les noms des differents contacts (like Activities App)
     public ArrayList<String> getContactNames(){

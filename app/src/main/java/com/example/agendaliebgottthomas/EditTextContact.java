@@ -25,24 +25,32 @@ public class EditTextContact extends AppCompatActivity {
     @Override
     protected void  onResume(){
         super.onResume();
-        int itemSelected = DataModel.getInstance().itemSelected;
+        int itemSelected = DataModel.getInstance().itemSelected; //prend l'index de la list view
         if(itemSelected >=0){
-            String name = DataModel.getInstance().getName(itemSelected);
-            editName.setText(name);
+            Contacts aux = DataModel.getInstance().listContact.get(itemSelected);
+            editName.setText(aux.getName());
+            editAdress.setText(aux.getAdress());
+            editPhone.setText(aux.getPhone());
         }else{
             editName.setText("");
+            editAdress.setText("");
+            editPhone.setText("");
         }
     }
 
     @Override
     public void onBackPressed() {
-        String item = editName.getText().toString();
-        if(item.length() > 0){
+        String name = editName.getText().toString();
+        String adress = editAdress.getText().toString();
+        String phone = editPhone.getText().toString();
+        if(name.length() > 0){
             int itemSelected = DataModel.getInstance().itemSelected;
             if(itemSelected < 0){
-                DataModel.getInstance().addContact(item); // PB doit ajouter l'objet du contact
+                DataModel.getInstance().listContact.add(new Contacts(name,adress,phone));// PB doit ajouter l'objet du contact
             }else{
-                DataModel.getInstance().setContact(itemSelected,item); //
+                DataModel.getInstance().listContact.get(itemSelected).setName(name);
+                DataModel.getInstance().listContact.get(itemSelected).setAdress(adress);
+                DataModel.getInstance().listContact.get(itemSelected).setPhone(phone);
             }
         }
         finish();
